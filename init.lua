@@ -16,7 +16,8 @@ if not pcall(require, "lazy") then
 end
 
 vim.opt.relativenumber = false -- Disable relative numbers
--------------- MACROS --------------
+vim.opt.number = true -- Habilita a numeração absoluta
+
 -------------- MACROS --------------
 -- Mapear Ctrl+A para selecionar tudo no arquivo
 vim.api.nvim_set_keymap("n", "<C-a>", "ggVG", { noremap = true, silent = true })
