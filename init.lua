@@ -16,10 +16,21 @@ if not pcall(require, "lazy") then
 end
 
 vim.opt.relativenumber = false -- Disable relative numbers
--- macros
+-------------- MACROS --------------
 vim.api.nvim_set_keymap("n", "<C-a>", "ggVG", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<C-c>", '"+y', { noremap = true, silent = true }) -- Copiar no modo visual
 vim.api.nvim_set_keymap("n", "<C-c>", "ggVGy", { noremap = true, silent = true }) -- Copiar todo o arquivo no modo normal
+-- Mapear Ctrl+Z para desfazer (undo) - geralmente já configurado
+vim.api.nvim_set_keymap("n", "<C-z>", "u", { noremap = true, silent = true })
+-- Mapear Ctrl+Y para refazer (redo)
+vim.api.nvim_set_keymap("n", "<C-y>", "<C-r>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<C-LeftMouse>",
+  "<Cmd>lua vim.lsp.buf.definition()<CR>",
+  { noremap = true, silent = true }
+)
 
 require "lazy_setup"
 require "polish"
