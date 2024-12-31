@@ -11,18 +11,17 @@ return {
     require("neo-tree").setup {
       close_if_last_window = true, -- Fecha o Neo-tree se for a última janela aberta
       filesystem = {
-        follow_current_file = true, -- Seguir o arquivo atual
+        follow_current_file = false, -- Desativa "seguir o arquivo atual" para evitar conflitos
         hijack_netrw_behavior = "open_current", -- Substituir o Netrw
       },
+      event_handlers = {
+        {
+          event = "file_opened",
+          handler = function()
+            require("neo-tree").close_all()
+          end,
+        },
+      },
     }
-
-    -- Abrir Neo-tree ao abrir um arquivo e fechar instâncias anteriores
-    vim.api.nvim_create_autocmd("BufEnter", {
-      callback = function()
-        if vim.bo.filetype ~= "neo-tree" and vim.bo.filetype ~= "" then
-          require("neo-tree.command").execute { action = "show", toggle = false, dir = vim.fn.expand("%:p:h") }
-        end
-      end,
-    })
   end,
 }

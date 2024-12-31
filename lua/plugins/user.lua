@@ -89,5 +89,5 @@ return {
         tab_completion = true,   -- Habilitar conclusão com Tab
       }
     end,
-  },
+  }
 }
