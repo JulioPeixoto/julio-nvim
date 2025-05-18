@@ -14,15 +14,16 @@ require("lazy").setup({
   { import = "community" },
   { import = "plugins" },
   {
-    "ribru17/bamboo.nvim",
-    lazy = false,
+    "catppuccin/nvim",
+    name = "catppuccin",
     priority = 1000,
+    lazy = false,
     config = function()
-      require("bamboo").setup {
-        style = "vulgaris",
-        transparent = false,
-      }
-      require("bamboo").load()
+      require("catppuccin").setup({
+        flavour = "mocha", -- latte, frappe, macchiato, mocha
+        transparent_background = false,
+      })
+      vim.cmd.colorscheme("catppuccin")
     end,
   },
 }, {
