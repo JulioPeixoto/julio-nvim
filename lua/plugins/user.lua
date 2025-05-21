@@ -6,6 +6,11 @@ return {
     event = "BufRead",
     config = function() require("lsp_signature").setup() end,
   },
+  {
+    "lifepillar/vim-solarized8",
+    lazy = false,
+    priority = 1000,
+  },
   -- Adicionar Treesitter
   {
     "nvim-treesitter/nvim-treesitter",

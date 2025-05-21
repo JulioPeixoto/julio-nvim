@@ -51,5 +51,8 @@ vim.api.nvim_set_keymap("i", "<C-l>", "<Esc>^vg_<Esc>a", { noremap = true, silen
 -- Fechar o buffer atual com Ctrl + F4
 vim.api.nvim_set_keymap('n', '<C-F4>', ':bdelete<CR>', { noremap = true, silent = true })
 
+vim.opt.termguicolors = true
+vim.o.background = "light"
+
 require "lazy_setup"
 require "polish"
